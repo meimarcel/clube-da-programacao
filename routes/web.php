@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
