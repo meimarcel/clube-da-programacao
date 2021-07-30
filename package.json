@@ -9,7 +9,7 @@
         "prod": "npm run production",
         "production": "mix --production",
         "build": "npm run prod",
-        "postinstall": "npm rin prod"
+        "postinstall": "npm run prod"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.2.1",
