@@ -13,6 +13,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="icon" href="img/CDP-LOGO.png" />
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
