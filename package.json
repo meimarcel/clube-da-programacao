@@ -12,8 +12,7 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "build": "npm run prod",
-        "postinstall": "npm run prod"
+        "build": "npm run prod"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.2.1",
