@@ -26,6 +26,6 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard/cadastro', [TrabalhoAcademicoController::class, 'show']) -> middleware(['auth'])->name('show');
+Route::get('/dashboard/trabalho/create', [TrabalhoAcademicoController::class, 'create']) -> middleware(['auth'])->name('trabalho.create');
 
 require __DIR__.'/auth.php';
