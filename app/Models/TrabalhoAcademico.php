@@ -71,4 +71,21 @@ class TrabalhoAcademico extends Model
         })->paginate(25);
         return $result;
     }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'titulo',
+        'tipo',
+        'autor',
+        'orientador',
+        'data',
+        'curso',
+        'idioma',
+        'paginas',
+        'resumo',
+        'link'
+    ];
 }

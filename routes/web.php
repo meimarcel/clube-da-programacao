@@ -26,7 +26,9 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard/trabalho/create', [TrabalhoAcademicoController::class, 'create']) -> middleware(['auth'])->name('trabalho.create');
+Route::get('/dashboard/trabalhos/create', [TrabalhoAcademicoController::class, 'create']) -> middleware(['auth'])->name('trabalhos.create');
+
+Route::post('/dashboard/trabalhos', [TrabalhoAcademicoController::class, 'store']) -> middleware(['auth'])->name('trabalhos.store');
 
 Route::get('/trabalhos', [TrabalhoAcademicoController::class, 'index']);
 
