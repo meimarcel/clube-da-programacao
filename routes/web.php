@@ -28,4 +28,8 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['aut
 
 Route::get('/dashboard/trabalho/create', [TrabalhoAcademicoController::class, 'create']) -> middleware(['auth'])->name('trabalho.create');
 
+Route::get('/trabalhos', [TrabalhoAcademicoController::class, 'index']);
+
+Route::any('/trabalhos/filtro', [TrabalhoAcademicoController::class, 'filtro'])->name('trabalhos.filtro');
+
 require __DIR__.'/auth.php';
