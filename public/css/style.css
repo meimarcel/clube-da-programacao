@@ -1111,25 +1111,8 @@ footer {
     width: 100%;
     height: 1150px;
 }
-/* 
-.form-row{
-    align-items: center;
-}
 
-.btn-submit-filter {
-    padding-bottom: 16px;
-    margin-top: auto;
-}
-
-.container-trabalho {
-    min-height: 20rem;
-    margin-top: 70px;
-    
-} */
-
-
-
-/*  */
+/*  Geral */
 
 .container-trabalho {
     min-height: 25rem;
@@ -1151,49 +1134,20 @@ footer {
 
 .container-works h1 {
     font-size: 25px;
+    font-weight: 600;
+    color: #212529;
 }
 
-
-.container-works th.col {
-    background-color: #E9E9E9;
-    border: 1px solid #dbdbdb;
-    padding: 10px;
-}
-
-.container-works th.col-6 {
-    background-color: #E9E9E9;
-    border: 1px solid #dbdbdb;
-    padding: 10px;
-}
-
-
-.container-works .content-works>th.col {
-    background-color: white;
-}
-
-.container-works .content-works>th.col-6 {
-    background-color: white;
-}
-
-.btn-table {
-    float: right;
-    margin-left: 10px;
-}
-
-.btn-edit:focus {
+.btn-filtrar:focus {
     outline: none !important;
     box-shadow: none;
     border-color: #60a4c2 !important;
     background-color: #60a4c2 !important;
 }
 
-.btn-delete:focus {
-    outline: none !important;
-    box-shadow: none;
-    border-color: #dc3545 !important;
-    background-color: #dc3545 !important;
+.btn-filtrar:hover{
+    background-color: #1C5974!important;
 }
-
 
 .pagination {
     justify-content: center;
@@ -1205,23 +1159,40 @@ footer {
     margin-left: 10px;
 }
 
-.msg-success {
-    margin-top: revert;
-    text-align: center;
+/*  Tabela */
+
+.btn-table {
+    float: right;
+    margin-left: 10px;
 }
 
 
-
-.dashboard-title-container {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.table-thead{
+.table-thead {
     background-color: #ECECF6;
 }
 
+table.tabela-trabalhos tr.tabela-hover {
+    cursor: pointer;
+}
 
-table.table-hover tr:hover{
+table.tabela-trabalhos tr.tabela-hover:hover {
     background-color: #ececf659;
+}
+
+.info-nao-encontrado {
+    text-align: center;
+    padding: 50px 0 50px 0;
+    font-weight: 600;
+}
+
+.loading {
+    padding: 50px 0 0 0;
+}
+
+#table-body-loading {
+    display: none;
+}
+
+#table-body-loading tr {
+    pointer-events: none;
 }

@@ -12,7 +12,7 @@ class TrabalhoAcademico extends Model
 
     public function filterBy($request = null)
     {
-        $result = DB::table('trabalho_academicos')->where(function ($consulta) use ($request) {
+        $result = DB::table('trabalho_academicos')->orderBy('created_at', 'desc')->where(function ($consulta) use ($request) {
 
             $inputs = array_filter($request->except('_token'));
 

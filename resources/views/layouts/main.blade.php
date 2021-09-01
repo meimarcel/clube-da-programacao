@@ -11,7 +11,9 @@
         href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="/css/style.css" rel="stylesheet">
     <link rel="icon" href="img/CDP-LOGO.png" />
 </head>
@@ -89,8 +91,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
 
     <script>
@@ -100,65 +102,8 @@
             }
         });
     </script>
-    <script>
-        const trabalhoSemFiltro = `
-                @foreach ($trabalhos as $trabalho)
-                    <tr>
-                        <td>{{ $trabalho->titulo }}</td>
-                        <td>{{ $trabalho->autor }}</td>
-                        <td>{{ $trabalho->tipo }}</td>
-                        <td>{{ date('Y', strtotime($trabalho->data)) }}</td>
-                    </tr>
-                @endforeach `;
 
-        $('form[name="form-filtro"]').submit(function(event) {
-            event.preventDefault();
-
-            var valorNome = $(this).find("input#nome").val().trim();
-            var valorTipo = $(this).find("select#tipo option").filter(':selected').val().trim();
-            var valorAno = $(this).find("input#ano").val().trim();
-            var temFiltro = (valorNome.length + valorAno.length + valorTipo.length) != 0;
-            if (temFiltro) {
-                $.ajax({
-                    type: 'post',
-                    url: "{{ route('trabalhos.filtro') }}",
-                    data: $(this).serialize(),
-                    success: function(resposta) {
-                        $('tbody').html(resposta);
-                    }
-                });
-            } else {
-                $('tbody').html(trabalhoSemFiltro);
-            }
-        });
-
-        $('#nome').on('keyup', function() {
-            if ($(this).val().length == 0) {
-                $('tbody').html(trabalhoSemFiltro);
-            }
-        })
-        $('#tipo').on('change', function() {
-            if ($(this).val().length == 0) {
-                $('tbody').html(trabalhoSemFiltro);
-            }
-        })
-        $('#tipo').on('keypress', function(event) {
-            if (event.which == 13) {
-                event.preventDefault();
-                $('form[name="form-filtro"]').submit();
-            }
-        })
-        $('#tipo').on('change', function() {
-            if ($(this).val().length == 0) {
-                $('tbody').html(trabalhoSemFiltro);
-            }
-        })
-        $('#ano').on('keyup', function() {
-            if ($(this).val().length == 0) {
-                $('tbody').html(trabalhoSemFiltro);
-            }
-        })
-    </script>
+    @stack('scripts-filtro')
 
     <!-- Custom scripts for this template -->
     <script src="/js/script.js"></script>

@@ -23,31 +23,27 @@ class TrabalhoAcademicoController extends Controller
     public function filtro(Request $request)
     {
         $trabalhoModel = new TrabalhoAcademico();
-
-        $trabalhosTable = null;
+        $inputs = array_filter($request->except('_token'));
+       
+        $todosTrabalhos = TrabalhoAcademico::orderBy('created_at', 'desc')->paginate(5);
+        
         if ($request->ajax()) {
-            $trabalhosFiltrados = $trabalhoModel->filterBy($request);
+            $trabalhosFiltrados = $trabalhoModel->filterBy(isset($request) ? $request : "");
 
-            if ($trabalhosFiltrados->total()>0) {
-                foreach ($trabalhosFiltrados as $trabalho) {
-                    $trabalhosTable .=  '
-                        <tr>
-                          <td>' . $trabalho->titulo . '</td>
-                          <td>' . $trabalho->autor . '</td>
-                          <td>' . $trabalho->tipo . '</td>
-                         <td>' . date('Y', strtotime($trabalho->data)) . '</td>
-                        </tr>';
-                }
-            } else {
-                $trabalhosTable = '<tr>
-                    <td align="center" colspan="5">Nenhum trabalho encontrado</td>
-                    </tr>';
-            }
-            return Response($trabalhosTable);
+            $respostas = [
+                'trabalhosFiltrados' => $trabalhosFiltrados,
+                'todosTrabalhos' => $todosTrabalhos,
+                'semTrabalho' => ($trabalhosFiltrados->total() == 0)
+            ];
+            echo json_encode($respostas);
+        } else {
+            $trabalhosFiltrados = $trabalhoModel->filterBy(isset($request) ? $request : "");
+            return view('trabalho-index', ['trabalhos' => $trabalhosFiltrados]);
         }
     }
-    
-    public function store(Request $request) {
+
+    public function store(Request $request)
+    {
 
         try {
             $trabalho = TrabalhoAcademico::create($request->all());
