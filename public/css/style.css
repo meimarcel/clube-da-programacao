@@ -1116,7 +1116,7 @@ footer {
 
 .container-trabalho {
     min-height: 25rem;
-    margin-top: 70px;
+    margin: 70px 0 70px 0;
 }
 
 .row {
@@ -1127,15 +1127,22 @@ footer {
     margin-top: auto;
 }
 
-.container-works {
-    margin-top: 1%;
+.container-filter {
+   margin-top: 6em;
+   margin-bottom: 20px;
 }
 
+.container-table{
+    margin: 15px 0 15px 0;
+}
 
-.container-works h1 {
-    font-size: 25px;
-    font-weight: 600;
+.h1-list-works {
     color: #212529;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
 }
 
 .btn-filtrar:focus {
@@ -1145,18 +1152,23 @@ footer {
     background-color: #60a4c2 !important;
 }
 
-.btn-filtrar:hover{
-    background-color: #1C5974!important;
+.btn-filtrar:hover {
+    background-color: #1C5974 !important;
 }
 
 .pagination {
     justify-content: center;
+    margin-top: 70px;
 }
 
 .btn-back,
 .btn-save {
     float: right;
     margin-left: 10px;
+}
+
+.label-text {
+    font-weight: 500;
 }
 
 /*  Tabela */
@@ -1183,16 +1195,4 @@ table.tabela-trabalhos tr.tabela-hover:hover {
     text-align: center;
     padding: 50px 0 50px 0;
     font-weight: 600;
-}
-
-.loading {
-    padding: 50px 0 0 0;
-}
-
-#table-body-loading {
-    display: none;
-}
-
-#table-body-loading tr {
-    pointer-events: none;
 }

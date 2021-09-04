@@ -28,22 +28,22 @@
 
     // Collapse Navbar
     var navbarCollapse = function () {
-        let pathname = window.location.pathname;
-        if (pathname == "/") {
+        let isHome = window.location.pathname == "/";
+        if (isHome) {
             if ($("#mainNav").offset().top > 50) {
                 $("#mainNav").addClass("navbar-shrink");
             } else {
                 $("#mainNav").removeClass("navbar-shrink");
             }
-        }else{
-          $("#mainNav").addClass("navbar-shrink");
+        } else {
+            $("#mainNav").addClass("navbar-shrink");
         }
 
     };
 
 
-     // Remove qualquer caractere que não seja um digito e só permite a adição de 4 digitos.
-     $(function () {
+    // Remove do input ano, qualquer caractere que não seja um dígito e só permite a adição de quatro dígitos.
+    $(function () {
         $("input[name='ano']").on('input', function (e) {
             $(this).val($(this).val().replace(/[^0-9]/g, ''));
             let text = $(this).val();
@@ -51,6 +51,14 @@
                 $(this).val($(this).val().substring(0, 4));
             }
         });
+    });
+
+    // Impede que o select do id='tipo' abra ao da enter e submete a requisição
+    $('#tipo').keypress(function (event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $('form[name="form-filtro"]').submit();
+        }
     });
 
 

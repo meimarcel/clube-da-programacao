@@ -3,14 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{ config('app.name', 'Laravel') }}</title>
+	<title>@yield('title', config('app.name', 'Laravel'))</title>
     <script src="https://kit.fontawesome.com/c26b9223c8.js" crossorigin="anonymous"></script>
     <!-- Custom fonts for this template -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-	<link href="css/style.css" rel="stylesheet">
-	<link rel="icon" href="img/CDP-LOGO.png" />
+	<link href="{{asset('css/style.css')}}" rel="stylesheet">
+	<link rel="icon" href="{{asset('img/CDP-LOGO.png')}}" />
 </head>
 
 <body id="page-top">
@@ -75,8 +75,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <!-- Custom scripts for this template -->
-<script src="js/script.js"></script>
-<script src="js/jquery.easing.min.js"></script>
+<script src="{{asset('js/script.js')}}"></script>
+<script src="{{asset('js/jquery.easing.min.js')}}"></script>
 	
 </body>
 

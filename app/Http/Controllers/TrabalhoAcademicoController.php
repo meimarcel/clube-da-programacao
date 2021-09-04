@@ -11,7 +11,8 @@ class TrabalhoAcademicoController extends Controller
     public function index()
     {
         $trabalhos = TrabalhoAcademico::orderBy('created_at', 'desc')->paginate(25);
-        return view('trabalho-index', ['trabalhos' => $trabalhos]);
+
+        return view('trabalho-index', compact('trabalhos'));
     }
 
     public function create()
@@ -19,27 +20,12 @@ class TrabalhoAcademicoController extends Controller
         return view('trabalho-create');
     }
 
-
     public function filtro(Request $request)
     {
-        $trabalhoModel = new TrabalhoAcademico();
-        $inputs = array_filter($request->except('_token'));
-       
-        $todosTrabalhos = TrabalhoAcademico::orderBy('created_at', 'desc')->paginate(5);
-        
-        if ($request->ajax()) {
-            $trabalhosFiltrados = $trabalhoModel->filterBy(isset($request) ? $request : "");
-
-            $respostas = [
-                'trabalhosFiltrados' => $trabalhosFiltrados,
-                'todosTrabalhos' => $todosTrabalhos,
-                'semTrabalho' => ($trabalhosFiltrados->total() == 0)
-            ];
-            echo json_encode($respostas);
-        } else {
-            $trabalhosFiltrados = $trabalhoModel->filterBy(isset($request) ? $request : "");
-            return view('trabalho-index', ['trabalhos' => $trabalhosFiltrados]);
-        }
+        $model = new TrabalhoAcademico();
+        $filtros = $request->except('_token');
+        $trabalhos = $model->filterBy($request);
+        return view('trabalho-index', compact('trabalhos', 'filtros'));
     }
 
     public function store(Request $request)
