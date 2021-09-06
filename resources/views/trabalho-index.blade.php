@@ -51,12 +51,12 @@
                         <th scope="col" class="col-4">Título</th>
                         <th scope="col" class="col-3">Autor</th>
                         <th scope="col" class="col-2">Tipo</th>
-                        <th scope="col" class="col-2">Ano da publicação</th>
+                        <th scope="col" class="col-2"> <span class="desktop">Ano da publicação</span> <span class="mobile">Ano</span> </th>
                     </tr>
                 </thead>
                 <tbody id="table-body-content">
                     @foreach ($trabalhos as $trabalho)
-                        <tr class="tabela-hover">
+                        <tr class="tabela-hover" onclick="location.href = '/trabalhos/{{ $trabalho -> id}}';">
                             <td>{{ $trabalho->titulo }}</td>
                             <td>{{ $trabalho->autor }}</td>
                             <td>{{ $trabalho->tipo }}</td>

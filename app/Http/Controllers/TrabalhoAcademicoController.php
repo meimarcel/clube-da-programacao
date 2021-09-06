@@ -40,4 +40,12 @@ class TrabalhoAcademicoController extends Controller
 
         return redirect()->back()->with('success', "Trabalho cadastrado!");
     }
+
+    public function show($id) {
+
+        $trabalho = TrabalhoAcademico::findOrFail($id);
+
+        return view('show', ['trabalho' => $trabalho]);
+        
+    }
 }

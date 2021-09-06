@@ -6,7 +6,14 @@
 }
 
 /*Extra small devices (portrait phones, less than 576px)*/
-@media (max-width: 575.98px) {}
+@media (max-width: 575.98px) { 
+    .desktop{
+        display: none;
+    }
+    .mobile{
+        display: block!important; 
+    }
+ }
 
 /*Small devices (landscape phones, less than 768px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {}
@@ -1195,4 +1202,31 @@ table.tabela-trabalhos tr.tabela-hover:hover {
     text-align: center;
     padding: 50px 0 50px 0;
     font-weight: 600;
+}
+
+.mostrar-dados{
+    margin: 70px;
+    font-weight: 540;
+    font-family: Arial, sans-serif;
+}
+
+
+.btn-back{
+    color: black;
+    border-radius: 10px;
+    float: right;
+    margin-left: 10px;
+    box-shadow: 1px 5px 8px gray;
+}
+
+.vitrine { 
+    height: 400px; 
+    width: 100%; 
+    background-color: white; 
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.mobile{
+    display: none;
 }
