@@ -20,6 +20,11 @@ class TrabalhoAcademicoController extends Controller
         return view('trabalho-create');
     }
 
+    public function edit($id)
+    {
+        return view('trabalho-create', ['trabalho'=>TrabalhoAcademico::findOrFail($id)]);
+    }
+
     public function filtro(Request $request)
     {
         $model = new TrabalhoAcademico();
@@ -38,7 +43,22 @@ class TrabalhoAcademicoController extends Controller
                 ->withErrors("Ops! Não foi possível efetuar o cadastro - code: {$e->getCode()}");
         }
 
-        return redirect()->back()->with('success', "Trabalho cadastrado!");
+        return redirect()->route('trabalhos.edit', $trabalho->id)
+            ->with('success', "Trabalho cadastrado!");
+    }
+
+    public function update(Request $request, $id) 
+    {
+        $trabalho = TrabalhoAcademico::findOrFail($id);
+        try {
+            $trabalho->update($request->all());
+        } catch(\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withInput()
+                ->withErrors("Ops! Não foi possível atualizar o trabalho - code: {$e->getCode()}");
+        }
+
+        return redirect()->route('trabalho.edit', $trabalho->id)
+            ->with('success', "Trabalho atualizado!");
     }
 
     public function show($id) {

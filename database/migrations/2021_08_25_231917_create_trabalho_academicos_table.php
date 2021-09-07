@@ -16,13 +16,13 @@ class CreateTrabalhoAcademicosTable extends Migration
         Schema::create('trabalho_academicos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->char('titulo', 300);
+            $table->string('titulo', 300);
             $table->enum('tipo', ['TCC', 'Artigo', 'Trabalho Academico']);
-            $table->char('autor', 250);
-            $table->char('orientador', 250);
+            $table->string('autor', 250);
+            $table->string('orientador', 250);
             $table->date('data');
-            $table->char('curso', 100);
-            $table->char('idioma', 100);
+            $table->string('curso', 100);
+            $table->string('idioma', 100);
             $table->integer('paginas');
             $table->text('resumo');
             $table->text('link');
