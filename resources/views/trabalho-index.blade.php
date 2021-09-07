@@ -38,38 +38,39 @@
                     <div class="btn-submit-filter">
                         <button type="submit" class="btn btn-primary btn-filtrar" id="btn-filtrar">Filtrar</button>
                     </div>
-
                 </div>
             </form>
         </div>
         <hr>
         <div class="container-table">
             <h1 class="h1-list-works">Trabalhos</h1>
-            <table class="table tabela-trabalhos">
-                <thead class="table-thead">
-                    <tr>
-                        <th scope="col" class="col-4">Título</th>
-                        <th scope="col" class="col-3">Autor</th>
-                        <th scope="col" class="col-2">Tipo</th>
-                        <th scope="col" class="col-2"> <span class="desktop">Ano da publicação</span> <span class="mobile">Ano</span> </th>
-                    </tr>
-                </thead>
-                <tbody id="table-body-content">
-                    @foreach ($trabalhos as $trabalho)
-                        <tr class="tabela-hover" onclick="location.href = '/trabalhos/{{ $trabalho -> id}}';">
-                            <td>{{ $trabalho->titulo }}</td>
-                            <td>{{ $trabalho->autor }}</td>
-                            <td>{{ $trabalho->tipo }}</td>
-                            <td>{{ date('Y', strtotime($trabalho->data)) }} </td>
+            <div class="table-responsive">
+                <table class="table tabela-trabalhos">
+                    <thead class="table-thead">
+                        <tr>
+                            <th scope="col" class="col-4">Título</th>
+                            <th scope="col" class="col-3">Autor</th>
+                            <th scope="col" class="col-2">Tipo</th>
+                            <th scope="col" class="col-2">Ano da publicação</th>
                         </tr>
-                    @endforeach
-                    @if (isset($filtros))
-                        {!! $trabalhos->total() == 0 ? "<td colspan='5'><div class='info-nao-encontrado'>Nenhum trabalho encontrado</div></td>" : '' !!}
-                    @else
-                        {!! $trabalhos->total() == 0 ? "<td colspan='5'><div class='info-nao-encontrado'>Nenhum trabalho foi adicionado</div></td>" : '' !!}
-                    @endif
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody id="table-body-content">
+                        @foreach ($trabalhos as $trabalho)
+                            <tr class="tabela-hover" onclick="location.href = '/trabalhos/{{ $trabalho->id }}'">
+                                <td>{{ $trabalho->titulo }}</td>
+                                <td>{{ $trabalho->autor }}</td>
+                                <td>{{ $trabalho->tipo }}</td>
+                                <td>{{ date('Y', strtotime($trabalho->data)) }} </td>
+                            </tr>
+                        @endforeach
+                        @if (isset($filtros))
+                            {!! $trabalhos->total() == 0 ? "<td colspan='5'><div class='info-nao-encontrado'>Nenhum trabalho encontrado</div></td>" : '' !!}
+                        @else
+                            {!! $trabalhos->total() == 0 ? "<td colspan='5'><div class='info-nao-encontrado'>Nenhum trabalho foi adicionado</div></td>" : '' !!}
+                        @endif
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div>
             {{ isset($filtros) ? $trabalhos->appends($filtros)->links() : $trabalhos->links() }}

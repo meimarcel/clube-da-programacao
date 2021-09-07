@@ -6,14 +6,7 @@
 }
 
 /*Extra small devices (portrait phones, less than 576px)*/
-@media (max-width: 575.98px) { 
-    .desktop{
-        display: none;
-    }
-    .mobile{
-        display: block!important; 
-    }
- }
+@media (max-width: 575.98px) {}
 
 /*Small devices (landscape phones, less than 768px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {}
@@ -1135,11 +1128,11 @@ footer {
 }
 
 .container-filter {
-   margin-top: 6em;
-   margin-bottom: 20px;
+    margin-top: 6em;
+    margin-bottom: 20px;
 }
 
-.container-table{
+.container-table {
     margin: 15px 0 15px 0;
 }
 
@@ -1166,12 +1159,6 @@ footer {
 .pagination {
     justify-content: center;
     margin-top: 70px;
-}
-
-.btn-back,
-.btn-save {
-    float: right;
-    margin-left: 10px;
 }
 
 .label-text {
@@ -1204,29 +1191,19 @@ table.tabela-trabalhos tr.tabela-hover:hover {
     font-weight: 600;
 }
 
-.mostrar-dados{
-    margin: 70px;
-    font-weight: 540;
-    font-family: Arial, sans-serif;
-}
-
-
-.btn-back{
+.btn-back {
+    margin-top: 16px;
     color: black;
     border-radius: 10px;
-    float: right;
-    margin-left: 10px;
-    box-shadow: 1px 5px 8px gray;
+    box-shadow: 0 5px 8px rgba(83, 83, 83, 0.37);
 }
 
-.vitrine { 
-    height: 400px; 
-    width: 100%; 
-    background-color: white; 
-    margin-top: 50px;
-    margin-bottom: 50px;
+table.show-trabalhos {
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.0625em;
 }
 
-.mobile{
-    display: none;
+table.show-trabalhos th {
+    font-weight: 560;
+    letter-spacing: normal;
 }

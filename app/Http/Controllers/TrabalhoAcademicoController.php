@@ -45,7 +45,7 @@ class TrabalhoAcademicoController extends Controller
 
         $trabalho = TrabalhoAcademico::findOrFail($id);
 
-        return view('show', ['trabalho' => $trabalho]);
+        return view('trabalho-show', compact('trabalho'));
         
     }
 }

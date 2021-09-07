@@ -34,6 +34,6 @@ Route::get('/trabalhos', [TrabalhoAcademicoController::class, 'index']);
 
 Route::any('/trabalhos/filtro', [TrabalhoAcademicoController::class, 'filtro'])->name('trabalhos.filtro');
 
-Route::get('/trabalhos/{id}', [TrabalhoAcademicoController::class, 'show']);
+Route::get('/trabalhos/{id}', [TrabalhoAcademicoController::class, 'show'])->name('trabalhos.show');
 
 require __DIR__.'/auth.php';
