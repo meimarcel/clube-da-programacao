@@ -21417,5 +21417,42 @@ process.umask = function() { return 0; };
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
+
+// $(function () {
+//   $("input[name='ano']").on('input', function (e) {
+//       $(this).val($(this).val().replace(/[^0-9]/g, ''));
+//       let text = $(this).val();
+//       if (text.length > 4) {
+//           $(this).val($(this).val().substring(0, 4));
+//       }
+//   });
+// });
+
+// var formatDate = function(nameInput){
+//   const val = document.querySelector('input').value;
+//   console.log(val);
+
+//   // elementDate.addEventListener('click', function(e){
+//   //   console.log(e.which);
+//   // });
+// }
+
+// formatDate('ano');
+
+
+function somenteNumeros(e) {
+  var charCode = e.charCode ? e.charCode : e.keyCode;
+  // charCode 8 = backspace
+  // charCode 9 = tab
+  if (charCode != 8 && charCode != 9) {
+      // charCode 48 equivale a 0
+      // charCode 57 equivale a 9
+      if (charCode < 48 || charCode > 57) {
+          return false;
+      }
+  }
+}
+
+/******/ 	
 /******/ })()
 ;
