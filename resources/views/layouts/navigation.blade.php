@@ -7,7 +7,7 @@
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <!-- <x-application-logo class="block h-10 w-auto fill-current text-gray-600" /> -->
-                        <img class="logo" src="img/CDP-LOGO.png" style="max-width: 50px; max-heigth: 50px; margin: auto!important">
+                        <img class="logo" src="{{ asset('img/CDP-LOGO.png') }}" style="max-width: 50px; max-heigth: 50px; margin: auto!important">
                     </a>
                 </div>
 

@@ -1,0 +1,12 @@
+#delete-selected-btn {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+#delete-selected-btn.hide {
+    opacity: 0;
+}
+
+#modal-confirm {
+    display:none
+}
