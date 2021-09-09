@@ -57,7 +57,7 @@
                             <thead>
                                 <tr>
                                     <th class="px-6 py-3">
-                                        <input class="form-checkbox" type="checkbox" name="select_all" id="select_all">
+                                        <input class="form-checkbox shadow-md cursor-pointer" type="checkbox" name="select_all" id="select_all" onchange ="checkAll(this)">
                                     </th>
                                     <th class="px-6 py-3 text-left">Título</th>
                                     <th class="px-6 py-3 text-left">Autor</th>
@@ -69,7 +69,7 @@
                                 @foreach ($trabalhos as $key => $trabalho)
                                     <tr>
                                         <th class="px-6 py-4">
-                                            <input class="check-one" type="checkbox" name="items[]">
+                                            <input class="check-one shadow-md cursor-pointer" type="checkbox" name="items[]">
                                         </th>
                                         <td class="px-6 py-4">{{ $trabalho->titulo }}</td>
                                         <td class="px-6 py-4">{{ $trabalho->autor }}</td>
