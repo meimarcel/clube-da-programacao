@@ -1,8 +1,8 @@
 @props(['contents' => 'Excluir selecionados'])
 
 <div {{ $attributes->merge(['class' => 'fixed bottom-12 right-20 hide', 'id' => 'delete-selected-btn']) }}>
-    <button
-        {{ $attributes->merge(['class' => 'text-white opacity-95 px-4 w-auto h-12 bg-red-600 rounded-full hover:bg-red-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none']) }}>
+    <button id="btn-delete-all" data-modal-toggle="delete-modal-confirm" data-modal-action="open"
+        {{ $attributes->merge(['class' => 'text-white opacity-95 px-4 w-auto h-12 bg-red-600 rounded-full hover:bg-red-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none cursor-default']) }} disabled>
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 inline-block mr-1 mb-1" viewBox="0 0 20 20"
             enable-background="new 0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd"

@@ -73,7 +73,7 @@
             </div>
         </div>
         <div>
-            {{ isset($filtros) ? $trabalhos->appends($filtros)->links() : $trabalhos->links() }}
+            {{ isset($filtros) ? $trabalhos->appends($filtros)->links('pagination::bootstrap-4') : $trabalhos->links('pagination::bootstrap-4') }}
         </div>
     </div>
 

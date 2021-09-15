@@ -24,7 +24,7 @@ if (App::environment('production')) {
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [TrabalhoAcademicoController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/dashboard/trabalhos/create', [TrabalhoAcademicoController::class, 'create']) -> middleware(['auth'])->name('trabalhos.create');
 
@@ -37,7 +37,10 @@ Route::put('/dashboard/trabalhos/{id}', [TrabalhoAcademicoController::class, 'up
 Route::get('/trabalhos', [TrabalhoAcademicoController::class, 'index']);
 
 Route::any('/trabalhos/filtro', [TrabalhoAcademicoController::class, 'filtro'])->name('trabalhos.filtro');
+Route::any('/dashboard/filtro', [TrabalhoAcademicoController::class, 'filtroDashboard'])->name('trabalhos.filtroDashboard');
 
 Route::get('/trabalhos/{id}', [TrabalhoAcademicoController::class, 'show'])->name('trabalhos.show');
+
+Route::post('/dashboard/trabalhos/destroy', [TrabalhoAcademicoController::class, 'destroy'])->middleware(['auth'])->name('trabalhos.destroy');
 
 require __DIR__.'/auth.php';

@@ -22,7 +22,7 @@ class TrabalhoAcademicoController extends Controller
 
     public function edit($id)
     {
-        return view('trabalho-create', ['trabalho'=>TrabalhoAcademico::findOrFail($id)]);
+        return view('trabalho-create', ['trabalho' => TrabalhoAcademico::findOrFail($id)]);
     }
 
     public function filtro(Request $request)
@@ -47,12 +47,12 @@ class TrabalhoAcademicoController extends Controller
             ->with('success', "Trabalho cadastrado!");
     }
 
-    public function update(Request $request, $id) 
+    public function update(Request $request, $id)
     {
         $trabalho = TrabalhoAcademico::findOrFail($id);
         try {
             $trabalho->update($request->all());
-        } catch(\Illuminate\Database\QueryException $e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->back()->withInput()
                 ->withErrors("Ops! Não foi possível atualizar o trabalho - code: {$e->getCode()}");
         }
@@ -61,11 +61,37 @@ class TrabalhoAcademicoController extends Controller
             ->with('success', "Trabalho atualizado!");
     }
 
-    public function show($id) {
+    public function show($id)
+    {
 
         $trabalho = TrabalhoAcademico::findOrFail($id);
 
         return view('trabalho-show', compact('trabalho'));
-        
+    }
+
+    public function dashboard()
+    {
+        $trabalhos = TrabalhoAcademico::orderBy('created_at', 'desc')->paginate(25);
+        return view('dashboard', compact('trabalhos'));
+    }
+
+    public function filtroDashboard(Request $request)
+    {
+        $modelDashboard = new TrabalhoAcademico();
+        $filtros = $request->except('_token');
+        $trabalhos = $modelDashboard->filterBy($request);
+        return view('dashboard', compact('trabalhos', 'filtros'));
+    }
+
+    public function destroy(Request $request)
+    {
+        $ids = $request->ids;
+        if (is_array($ids)) {
+            TrabalhoAcademico::whereIn('id', $ids)->delete();
+        } else {
+            TrabalhoAcademico::findOrFail($ids)->delete();
+        }
+
+        return response()->json(['successMessage' => 'Trabalho excluido com sucesso!']);
     }
 }
