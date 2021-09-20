@@ -8,14 +8,13 @@ class Dashboard {
         this.modalConfirm = document.getElementById('modal-delete');
         this.btnModalConfirm = document.getElementById('btn-modal-confirm');
         this.btnModalCancel = document.getElementById('btn-modal-close');
-
+        this.btnDeleteAll = document.getElementById('btn-delete-all');
     }
 
     checkAll() {
         if (this.formFilter) {
             this.checkboxAll.addEventListener('change', () => {
                 this.checkboxs.forEach(checkbox => {
-                    console.log(this.checkboxAll.checked);
                     checkbox.checked = this.checkboxAll.checked;
                     this.buttonVisibility(this.checkboxAll.checked);
                 })
@@ -56,17 +55,17 @@ class Dashboard {
 
     buttonVisibility(canShow) {
         const deleteSelectedBtn = document.getElementById('delete-selected-btn');
-        const btnDeleteAll = document.getElementById('btn-delete-all');
+        // const btnDeleteAll = document.getElementById('btn-delete-all');
 
         if (deleteSelectedBtn) {
             if (canShow) {
-                btnDeleteAll.disabled = false;
-                btnDeleteAll.classList.add('cursor-pointer');
-                btnDeleteAll.classList.replace('cursor-default', 'cursor-pointer');
+                this.btnDeleteAll.disabled = false;
+                this.btnDeleteAll.classList.add('cursor-pointer');
+                this.btnDeleteAll.classList.replace('cursor-default', 'cursor-pointer');
                 deleteSelectedBtn.classList.remove('hide')
             } else {
-                btnDeleteAll.disabled = true;
-                btnDeleteAll.classList.replace('cursor-pointer', 'cursor-default');
+                this.btnDeleteAll.disabled = true;
+                this.btnDeleteAll.classList.replace('cursor-pointer', 'cursor-default');
                 deleteSelectedBtn.classList.add('hide');
             }
         }
@@ -81,10 +80,6 @@ class Dashboard {
     }
 
     deleteByIds(ids) {
-        // const messageContainer = document.getElementById('container-message');
-        // const messageSuccess = messageContainer.querySelector('div[id=content-message-success]');
-        // const messageError = messageContainer.querySelector('div[id=content-message-error]');
-        // messageContainer.classList.remove('hidden');
 
         if (typeof ids === 'object') {
             ids.forEach(id => {
@@ -93,10 +88,15 @@ class Dashboard {
             })
         } else {
             const trabalhosTR = document.getElementById('trabalho-id-' + ids);
-            trabalhosTR.classList.add('animate-pulse', 'bg-red-50', 'border', 'border-red-100');
+            if (trabalhosTR) {
+                trabalhosTR.classList.add('animate-pulse', 'bg-red-50', 'border', 'border-red-100');
+            }
+
         }
 
-        fetch(`${window.location.href}/trabalhos/destroy`, {
+        let url = window.location.href + '/trabalhos/destroy';
+
+        fetch(url, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -109,47 +109,64 @@ class Dashboard {
             })
             .then(response => response.json())
             .then((response) => {
-                // messageSuccess.classList.remove('hidden');
-                // messageSuccess.querySelector('span').innerHTML = response.successMessage;
                 if (typeof ids === 'object') {
                     ids.forEach(id => {
                         const trabalhosTR = document.getElementById('trabalho-id-' + id);
                         trabalhosTR.remove();
                     })
+                    this.checkboxAll.checked = false;
+                    this.buttonVisibility(false);
                 } else {
                     const trabalhosTR = document.getElementById('trabalho-id-' + ids);
                     trabalhosTR.remove();
+
                 }
-                this.checkboxAll.checked = false;
-                this.buttonVisibility(false);
+                const trs = document.getElementById('body-table').getElementsByTagName('tr');
+                if (trs.length == 0) {
+                    this.checkboxAll.disabled = true
+                    this.tbody.innerHTML = `<td colspan="5">
+                <div class="pt-20 pb-5 text-center">
+                    <p class="font-semibold mb-5">Nenhum trabalho foi adicionado.</p>
+                    <a href="${window.location.href}/trabalhos/create"
+                        class="bg-green-500 hover:bg-green-700 text-white text-center py-2 px-4 rounded uppercase">adicionar</a>
+                </div>
+            </td>`
+                }
 
             }).catch((error) => {
-                // messageError.classList.remove('hidden');
-                // messageError.querySelector('span').innerHTML = error.message;
-
                 if (typeof ids === 'object') {
                     ids.forEach(id => {
                         const trabalhosTR = document.getElementById('trabalho-id-' + id);
                         trabalhosTR.classList.remove('animate-pulse', 'bg-red-50', 'border', 'border-red-100');
                     })
+                    this.checkboxAll.checked = false;
+                    this.buttonVisibility(false);
                 } else {
                     const trabalhosTR = document.getElementById('trabalho-id-' + ids);
-                    trabalhosTR.classList.remove('animate-pulse', 'bg-red-50', 'border', 'border-red-100');
+                    if (trabalhosTR) {
+                        trabalhosTR.classList.remove('animate-pulse', 'bg-red-50', 'border', 'border-red-100');
+                    }
+
                 }
             })
     }
 
     excluirTrabalhosSelecionados() {
-        if (this.btnModalConfirm) this.btnModalConfirm.addEventListener('click', () => {
-            var ids = [];
-            const checkboxsChecked = this.tbody.querySelectorAll('input[name="ids"]:checked');
+        if (this.btnDeleteAll) {
+            this.btnDeleteAll.addEventListener('click', () => {
+                this.btnModalConfirm.addEventListener('click', () => {
+                    var ids = [];
+                    const checkboxsChecked = this.tbody.querySelectorAll('input[name="ids"]:checked');
 
-            checkboxsChecked.forEach((checkbox) => {
-                ids.push(checkbox.value);
-            });
+                    checkboxsChecked.forEach((checkbox) => {
+                        ids.push(checkbox.value);
+                    });
 
-            this.deleteByIds(ids);
-        });
+                    this.deleteByIds(ids);
+                });
+            })
+
+        }
 
     }
 
