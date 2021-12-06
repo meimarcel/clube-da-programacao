@@ -83,7 +83,7 @@
             <td class="col-10">Idioma: {{ $trabalho->idioma }} </td> <br>
             <hr>
             </hr>
-            <td class="col-10">Link:<a href="{{ $trabalho->link }}"> {{ $trabalho->link }}</a> </td> <br>
+            <td class="col-10">Link:<a href="{{ $trabalho->link }}" target="_blank" rel="noreferrer noopener"> {{ $trabalho->link }}</a> </td> <br>
         </tr>
         <x-button-back class="btn-back" href="/trabalhos" /> --}}
     </div>

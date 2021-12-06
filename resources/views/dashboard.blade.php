@@ -2,6 +2,8 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Trabalhos') }}
+
+            <x-button-add href="{{ route('trabalhos.create') }}" class="float-right"/>
         </h2>
     </x-slot>
 
@@ -50,9 +52,15 @@
                                     Ano
                                 </label>
                                 <input
-                                    class="appearance-none block w-28 bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="ano" name="ano" type="text" placeholder="2017" maxlength="4"
+                                    class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    id="ano" name="ano" type="text" placeholder="{{ date('Y') }}" maxlength="4"
                                     onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            </div>
+                            <div class="w-20 md:w-1/4 px-3 mb-6 md:mb-0">
+                                <label class="block tracking-wide font-black text-sm font-bold mb-2">
+                                    &nbsp;
+                                </label>
+                                <x-button-filter type="submit" class="appearance-none block w-28 bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/>
                             </div>
                         </div>
                     </form>
@@ -85,9 +93,11 @@
                                         <td class="px-6 py-4 text-base">{{ date('Y', strtotime($trabalho->data)) }}
                                         </td>
                                         <td class="px-6 py-4 text-base flex flex-row">
-                                            <button type="button" onclick="editarTrabalho({{ $trabalho->id }})">
-                                                <x-icon-edit />
-                                            </button>
+                                            <a href="{{ route('trabalhos.edit', ['id' =>  $trabalho->id] ) }}">
+                                                <button type="button">
+                                                    <x-icon-edit />
+                                                </button>
+                                            </a>
                                             <button data-modal-toggle="delete-modal-confirm" data-modal-action="open"
                                                 type="submit" onclick="excluirTrabalho({{ $trabalho->id }})">
                                                 <x-icon-delete />
@@ -118,7 +128,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="pt-60 pb-20">
+                    <div class="pt-10">
                         {{ isset($filtros) ? $trabalhos->appends($filtros)->links() : $trabalhos->links() }}
                     </div>
                 </div>
@@ -127,7 +137,7 @@
     </div>
     @if ($trabalhos->total()>0)
         <x-button-delete-selected />
-    <x-delete-confirm-modal />
+        <x-delete-confirm-modal />
     @endif
     
 </x-app-layout>

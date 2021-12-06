@@ -22,7 +22,7 @@ if (App::environment('production')) {
     URL::forceScheme('https');
 }
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/dashboard', [TrabalhoAcademicoController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 
@@ -34,7 +34,7 @@ Route::post('/dashboard/trabalhos', [TrabalhoAcademicoController::class, 'store'
 
 Route::put('/dashboard/trabalhos/{id}', [TrabalhoAcademicoController::class, 'update']) -> middleware(['auth'])->name('trabalhos.update');
 
-Route::get('/trabalhos', [TrabalhoAcademicoController::class, 'index']);
+Route::get('/trabalhos', [TrabalhoAcademicoController::class, 'index'])->name('trabalhos');
 
 Route::any('/trabalhos/filtro', [TrabalhoAcademicoController::class, 'filtro'])->name('trabalhos.filtro');
 Route::any('/dashboard/filtro', [TrabalhoAcademicoController::class, 'filtroDashboard'])->name('trabalhos.filtroDashboard');

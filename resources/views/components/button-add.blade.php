@@ -1,4 +1,4 @@
-@props(['contents' => 'Adicionar Artigo'])
+@props(['contents' => 'Novo Trabalho'])
 
 <a {{ $attributes->merge(['class' => 'text-base inline-flex items-center gap-1 border shadow-md rounded-md px-3 py-px']) }}>
     <span>{{ $contents }}</span>

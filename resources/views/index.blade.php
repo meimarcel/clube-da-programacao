@@ -15,7 +15,7 @@
 					<h1 class="display-2 logo-home">Clube da Programacao</h1>
 					<h3>Espalhando Conhecimento</h3>
 					<a class="a-light js-scroll-trigger" href="#sobre"><button type="button" class="btn btn-outline-light btn-lg">Sobre</button></a>
-					<a href="{{ url('/#') }}"><button type="button" class="btn btn-primary btn-lg">Revista CDP</button></a>
+					<a href="{{ route('trabalhos') }}"><button type="button" class="btn btn-primary btn-lg">Revista CDP</button></a>
 				</div>
 			</div>
 			<div class="carousel-item img2">
@@ -48,7 +48,7 @@
 				</p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-				<a href="{{ url('/#') }}"><button type="button" class="btn btn-outline-secondary btn-lg">Revista CDP</button></a>
+				<a href="{{ route('trabalhos') }}"><button type="button" class="btn btn-outline-secondary btn-lg">Revista CDP</button></a>
 			</div>
 		</div>
 	</div>
@@ -213,138 +213,5 @@
 			<hr class="line" />
 		</h1>
 </div>
-<!-- <div class="container">
-	<h1 class="sub">ORIENTADORES</h1>
-	<div class="row">
-		<div class="col-md-6">
-			<div class="card profile-card-1">
-				<div class="background"></div>
-				<img src="img/avatar.png" alt="profile-image" class="profile"/>
-				<div class="card-content">
-					<h2>Líliam Leal<small>Professora Orientadora</small></h2>
-					<div class="icon-block">
-						<a href="" target="_blank"> <i class="fab fa-github social-icons"></i></a>
-						<a href="" target="_blank"> <i class="fab fa-instagram social-icons"></i></a>
-						<a href="" target="_blank"> <i class="fab fa-linkedin-in social-icons"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6" style="float:left;">
-			<div class="card profile-card-1">
-				<div class="background"></div>
-				<img src="img/avatar.png" alt="profile-image" class="profile"/>
-				<div class="card-content">
-					<h2>Marcus Vinícius<small>Professor Orientador</small></h2>
-					<div class="icon-block">
-						<a href="" target="_blank"> <i class="fab fa-github social-icons"></i></a>
-						<a href="" target="_blank"> <i class="fab fa-instagram social-icons"></i></a>
-						<a href="" target="_blank"> <i class="fab fa-linkedin-in social-icons"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--- Cards team --> <!--
-<div class="container ">
-	<h1 class="sub">ALUNOS</h1>
-	<div class="row">
-		<div class="col-md-4">
-			<div class="card profile-card-1">
-				<div class="background"></div>
-				<img src="img/adickson.jpeg" alt="profile-image" class="profile"/>
-				<div class="card-content">
-				<h2>Adickson Jr<small>Aluno<br>8º Período</small></h2>
-				<div class="icon-block">
-					<a href="https://github.com/adicksonjr" target="_blank"><i class="fab fa-github social-icons"></i></a>
-					<a href="https://www.instagram.com/" target="_blank"> <i class="fab fa-instagram social-icons"></i></a>
-					<a href="https://www.linkedin.com/in/adickson-vernek-6b12721a0/" target="_blank"> <i class="fab fa-linkedin-in social-icons"></i></a></div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card profile-card-1">
-				<div class="background"></div>
-				<img src="img/denilson.jpg" alt="profile-image" class="profile"/>
-				<div class="card-content">
-				<h2>Denilson Moura<small>Aluno<br>7º Período</small></h2>
-				<div class="icon-block">
-					<a href="https://github.com/denilsondmoura" target="_blank"><i class="fab fa-github social-icons"></i></a>
-					<a href="https://www.instagram.com/denilson_d_moura/" target="_blank"> <i class="fab fa-instagram social-icons"></i></a>
-					<a href="https://www.linkedin.com/in/denilson-d-moura-068897133/" target="_blank"> <i class="fab fa-linkedin-in social-icons"></i></a></div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card profile-card-1">
-				<div class="background"></div>
-				<img src="img/lucas.png" alt="profile-image" class="profile"/>
-				<div class="card-content">
-				<h2>Lucas Pinheiro<small>Aluno<br>8º Período</small></h2>
-				<div class="icon-block">
-					<a href="https://github.com/luccasph" target="_blank"><i class="fab fa-github social-icons"></i></a>
-					<a href="https://www.instagram.com/luccasph_95/" target="_blank"> <i class="fab fa-instagram social-icons"></i></a>
-					<a href="https://www.linkedin.com/in/lucas-pinheiro-462794152/" target="_blank"> <i class="fab fa-linkedin-in social-icons"></i></a></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-3">
-			<div class="card profile-card-1">
-				<div class="background"></div>
-				<img src="img/marcel.jpg" alt="profile-image" class="profile"/>
-				<div class="card-content">
-					<h2>Mei Marcel<small>Aluno<br>8º Período</small></h2>
-					<div class="icon-block">
-						<a href="https://github.com/meimarcel" target="_blank"> <i class="fab fa-github social-icons"></i></a>
-						<a href="https://www.instagram.com/meimarcel/" target="_blank"> <i class="fab fa-instagram social-icons"></i></a>
-						<a href="https://www.linkedin.com/in/marcel-mei-288912189/" target="_blank"> <i class="fab fa-linkedin-in social-icons"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="card profile-card-1">
-				<div class="background"></div>
-				<img src="img/jhon.jpeg" alt="profile-image" class="profile"/>
-				<div class="card-content">
-				<h2>Jhon Wilker<small>Aluno<br>9º Período</small></h2>
-				<div class="icon-block">
-					<a href="https://github.com/jhonwilker" target="_blank"><i class="fab fa-github social-icons"></i></a>
-					<a href="https://www.instagram.com/jhonwilkersousa/" target="_blank"> <i class="fab fa-instagram social-icons"></i></a>
-					<a href="https://www.linkedin.com/in/jhon-wilker-sousa-93b880129/" target="_blank"> <i class="fab fa-linkedin-in social-icons"></i></a></div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="card profile-card-1">
-				<div class="background"></div>
-				<img src="img/thalyson.jpg" alt="profile-image" class="profile"/>
-				<div class="card-content">
-				<h2>Thalyson L.<small>Aluno<br>9º Período</small></h2>
-				<div class="icon-block">
-					<a href="https://github.com/ThalysonLeonardo" target="_blank"><i class="fab fa-github social-icons"></i></a>
-					<a href="https://www.instagram.com/thalysonleonardo/" target="_blank"> <i class="fab fa-instagram social-icons"></i></a>
-					<a href="https://www.linkedin.com/in/thalyson-leonardo-ti/" target="_blank"> <i class="fab fa-linkedin-in social-icons"></i></a></div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="card profile-card-1">
-				<div class="background"></div>
-				<img src="img/willy.jpg" alt="profile-image" class="profile"/>
-				<div class="card-content">
-				<h2>Willy Oliveira<small>Aluno<br>8º Período</small></h2>
-				<div class="icon-block">
-					<a href="https://github.com/willyoliv" target="_blank"><i class="fab fa-github social-icons"></i></a>
-					<a href="https://www.instagram.com/willy_oliv/" target="_blank"> <i class="fab fa-instagram social-icons"></i></a>
-					<a href="https://www.linkedin.com/in/willy-oliveira-6b02731a0/" target="_blank"> <i class="fab fa-linkedin-in social-icons"></i></a></div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
 </section>
 @endsection

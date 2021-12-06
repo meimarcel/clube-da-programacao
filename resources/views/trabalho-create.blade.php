@@ -88,7 +88,7 @@
                         </div>
 
                         <div class="my-6 flex flex-row justify-end gap-6">
-                            <x-button-back href="" class="order-2"/>
+                            <x-button-back href="{{ route('dashboard') }}" class="order-2"/>
                             <x-button-save type="submit" class="order-3"/>
 
                             @if(Route::currentRouteName() == 'trabalhos.edit')

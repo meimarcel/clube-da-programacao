@@ -1,4 +1,4 @@
-@props(['contents' => 'Salvar'])
+@props(['contents' => 'Deletar'])
 
 <button {{ $attributes->merge(['class' => 'inline-flex items-center gap-1 border shadow-md rounded-md p-1 px-3']) }}>
     <span>{{ $contents }}</span>

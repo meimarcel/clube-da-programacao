@@ -10,7 +10,7 @@ class TrabalhoAcademicoController extends Controller
 
     public function index()
     {
-        $trabalhos = TrabalhoAcademico::orderBy('created_at', 'desc')->paginate(25);
+        $trabalhos = TrabalhoAcademico::orderBy('created_at', 'desc')->paginate(config('app.pagination'));
 
         return view('trabalho-index', compact('trabalhos'));
     }
@@ -37,6 +37,10 @@ class TrabalhoAcademicoController extends Controller
     {
 
         try {
+            if(!str_contains($request->get('link'),'https://') &&  !str_contains($request->get('link'),'http://')) {
+                return redirect()->back()->withInput()
+                ->withErrors("O link deve começar com 'https://' ou 'http://'");
+            }
             $trabalho = TrabalhoAcademico::create($request->all());
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->back()->withInput()
@@ -51,13 +55,17 @@ class TrabalhoAcademicoController extends Controller
     {
         $trabalho = TrabalhoAcademico::findOrFail($id);
         try {
+            if(!str_contains($request->get('link'),'https://') &&  !str_contains($request->get('link'),'http://')) {
+                return redirect()->back()->withInput()
+                ->withErrors("O link deve começar com 'https://' ou 'http://'");
+            }
             $trabalho->update($request->all());
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->back()->withInput()
                 ->withErrors("Ops! Não foi possível atualizar o trabalho - code: {$e->getCode()}");
         }
 
-        return redirect()->route('trabalho.edit', $trabalho->id)
+        return redirect()->route('trabalhos.edit', $trabalho->id)
             ->with('success', "Trabalho atualizado!");
     }
 
@@ -71,7 +79,7 @@ class TrabalhoAcademicoController extends Controller
 
     public function dashboard()
     {
-        $trabalhos = TrabalhoAcademico::orderBy('created_at', 'desc')->paginate(25);
+        $trabalhos = TrabalhoAcademico::orderBy('created_at', 'desc')->paginate(config('app.pagination'));
         return view('dashboard', compact('trabalhos'));
     }
 

@@ -33,7 +33,7 @@
                     <div class="col">
                         <label for="ano" class="label-text">Ano</label>
                         <input type="text" name="ano" id="ano" value="{{ isset($filtros['ano']) ? $filtros['ano'] : '' }}"
-                            class="form-control" placeholder="2017">
+                            class="form-control" placeholder="{{ date('Y') }}">
                     </div>
                     <div class="btn-submit-filter">
                         <button type="submit" class="btn btn-primary btn-filtrar" id="btn-filtrar">Filtrar</button>

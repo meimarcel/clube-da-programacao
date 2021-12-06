@@ -16,7 +16,7 @@ class TrabalhoAcademico extends Model
             $consulta->where('titulo', 'ilike', "%{$request->titulo}%")
                 ->where('tipo', 'ilike', "%{$request->tipo}%")
                 ->where('data', 'ilike', "{$request->ano}%");
-        })->paginate(25);
+        })->paginate(config('app.pagination'));
         return $result;
     }
     

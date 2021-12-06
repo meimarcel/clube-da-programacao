@@ -1116,7 +1116,7 @@ footer {
 
 .container-trabalho {
     min-height: 25rem;
-    margin: 70px 0 70px 0;
+    margin: 70px 0 300px 0;
 }
 
 .row {
@@ -1183,6 +1183,7 @@ table.tabela-trabalhos tr.tabela-hover {
 
 table.tabela-trabalhos tr.tabela-hover:hover {
     background-color: #ececf659;
+    color: #2163af;
 }
 
 .info-nao-encontrado {
