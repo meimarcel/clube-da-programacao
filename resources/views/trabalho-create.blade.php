@@ -94,7 +94,8 @@
                             @if(Route::currentRouteName() == 'trabalhos.edit')
                             <x-button-visualizar class="order-1"/>
                             
-                            <x-button-delete class="order-4"/>
+                            <x-button-delete type="button" data-modal-toggle="delete-modal-confirm" data-modal-action="open"
+                            class="order-4" class="order-4"/>
                             @endif
                         </div>
                     </form>
@@ -102,4 +103,16 @@
             </div>
         </div>
     </div>
+
+    @if(Route::currentRouteName() == 'trabalhos.edit')
+
+    <x-delete-confirm-modal onConfirmEvent="deleteForm.submit()"/>
+
+    <form id="deleteForm" action="{{ route('trabalhos.destroy') }} " method="POST">
+        @csrf
+        <input type="hidden" name="ids" value="{{ $trabalho->id }}">
+        <input type="hidden" name="next" value="{{ route('dashboard') }}">
+    </form>
+    @endif
+
 </x-app-layout>

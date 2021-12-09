@@ -100,6 +100,10 @@ class TrabalhoAcademicoController extends Controller
             TrabalhoAcademico::findOrFail($ids)->delete();
         }
 
-        return response()->json(['successMessage' => 'Trabalho excluido com sucesso!']);
+        if(isset($request->next)) {
+            return redirect()->route('dashboard')->with('success', "Trabalho excluido com sucesso!");
+        } else {
+            return response()->json(['successMessage' => 'Trabalho excluido com sucesso!']);
+        }
     }
 }

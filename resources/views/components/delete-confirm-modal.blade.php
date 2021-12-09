@@ -1,4 +1,5 @@
-@props(['modalTitle' => 'Tem certeza?', 'modalMessage' => 'Tem certeza que deseja excluir esse trabalho?', 'modalCancelButton' => 'Cancelar', 'modalConfirmButton' => 'Excluir'])
+@props(['modalTitle' => 'Tem certeza?', 'modalMessage' => 'Tem certeza que deseja excluir esse trabalho?', 'modalCancelButton' => 'Cancelar', 'modalConfirmButton' => 'Excluir',
+        'onConfirmEvent' => NULL])
 
 <div
     {{ $attributes->merge(['id' => 'modal-delete', 'style' => 'transition-duration: 500ms;', 'data-modal' => 'delete-modal-confirm', 'class' => 'invisible inset-0 opacity-0 min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover overflow-x-hidden overflow-y-auto transition-all']) }}>
@@ -20,7 +21,7 @@
         <div {{ $attributes->merge(['class' => 'p-3 mt-2 text-center space-x-4 md:block']) }}>
             <button
                 {{ $attributes->merge(['id' => 'btn-modal-close', 'type' => 'button', 'class' => 'mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-semibold tracking-wider border text-gray-800 rounded-full hover:shadow-lg hover:bg-gray-100', 'data-modal-toggle' => 'delete-modal-confirm', 'data-modal-action' => 'close']) }}>{{ $modalCancelButton }}</button>
-            <button
+            <button @isset($onConfirmEvent) onclick="{{$onConfirmEvent}}" @endisset
                 {{ $attributes->merge(['id' => 'btn-modal-confirm', 'type' => 'button', 'class' => 'mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-semibold tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600', 'data-modal-toggle' => 'delete-modal-confirm']) }}>
                 {{ $modalConfirmButton }}
             </button>
