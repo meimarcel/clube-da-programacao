@@ -86,16 +86,15 @@
                             <tbody id="body-table">
                                 @foreach ($trabalhos as $trabalho)
                                     <tr id="trabalho-id-{{ $trabalho->id }}"
-                                        onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'"
                                         class="cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50">
                                         <th class="px-6 py-4">
                                             <input class="check-one shadow-md cursor-pointer" type="checkbox" name="ids"
                                                 value="{{ $trabalho->id }}">
                                         </th>
-                                        <td class="px-6 py-4 text-base">{{ $trabalho->titulo }}</td>
-                                        <td class="px-6 py-4 text-base">{{ $trabalho->autor }}</td>
-                                        <td class="px-6 py-4 text-base whitespace-nowrap">{{ $trabalho->tipo }}</td>
-                                        <td class="px-6 py-4 text-base">{{ date('Y', strtotime($trabalho->data)) }}
+                                        <td onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base">{{ $trabalho->titulo }}</td>
+                                        <td onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base">{{ $trabalho->autor }}</td>
+                                        <td onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base whitespace-nowrap">{{ $trabalho->tipo }}</td>
+                                        <td onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base">{{ date('Y', strtotime($trabalho->data)) }}
                                         </td>
                                         <td class="px-6 py-4 text-base flex flex-row">
                                             <a href="{{ route('trabalhos.edit', ['id' => $trabalho->id]) }}">

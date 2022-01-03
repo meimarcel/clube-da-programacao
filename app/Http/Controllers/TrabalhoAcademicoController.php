@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TrabalhoAcademico;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Symfony\Component\Console\Output\ConsoleOutput;
 
 class TrabalhoAcademicoController extends Controller
 {

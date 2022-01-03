@@ -55,37 +55,6 @@
             <x-button-back class="btn-back" href="/trabalhos" />
         </div>
 
-        {{-- <tr>
-            <td class="col-10">Título: {{ $trabalho->titulo }} </td> <br>
-            <hr>
-            </hr>
-            <td class="col-10">Autor(a)(es): {{ $trabalho->autor }} </td> <br>
-            <hr>
-            </hr>
-            <td class="col-10">Orientador(a)(es): {{ $trabalho->orientador }} </td> <br>
-            <hr>
-            </hr>
-            <td class="col-10">Curso: {{ $trabalho->curso }} </td> <br>
-            <hr>
-            </hr>
-            <td class="col-10">Resumo: {{ $trabalho->resumo }} </td> <br>
-            <hr>
-            </hr>
-            <td class="col-10">Páginas: {{ $trabalho->paginas }} </td> <br>
-            <hr>
-            </hr>
-            <td class="col-10">Data: {{ $trabalho->data }} </td> <br>
-            <hr>
-            </hr>
-            <td class="col-10">Tipo: {{ $trabalho->tipo }} </td> <br>
-            <hr>
-            </hr>
-            <td class="col-10">Idioma: {{ $trabalho->idioma }} </td> <br>
-            <hr>
-            </hr>
-            <td class="col-10">Link:<a href="{{ $trabalho->link }}" target="_blank" rel="noreferrer noopener"> {{ $trabalho->link }}</a> </td> <br>
-        </tr>
-        <x-button-back class="btn-back" href="/trabalhos" /> --}}
     </div>
 
 @endsection

@@ -55,7 +55,6 @@ class Dashboard {
 
     buttonVisibility(canShow) {
         const deleteSelectedBtn = document.getElementById('delete-selected-btn');
-        // const btnDeleteAll = document.getElementById('btn-delete-all');
 
         if (deleteSelectedBtn) {
             if (canShow) {
