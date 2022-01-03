@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TrabalhoAcademico;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class TrabalhoAcademicoController extends Controller
 {
@@ -75,6 +78,13 @@ class TrabalhoAcademicoController extends Controller
         $trabalho = TrabalhoAcademico::findOrFail($id);
 
         return view('trabalho-show', compact('trabalho'));
+    }
+
+    public function showAdmin($id)
+    {
+        $trabalho = TrabalhoAcademico::findOrFail($id);
+
+        return view('trabalho-auth-show', compact('trabalho'));
     }
 
     public function dashboard()

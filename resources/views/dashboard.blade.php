@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Trabalhos') }}
 
-            <x-button-add href="{{ route('trabalhos.create') }}" class="float-right"/>
+            <x-button-add href="{{ route('trabalhos.create') }}" class="float-right" />
         </h2>
     </x-slot>
 
@@ -12,7 +12,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- Session message -->
-                    <x-message class="mb-4 text-center"/>
+                    <x-message class="mb-4 text-center" />
 
                     <h1 class="text-lg mb-5 font-black">Filtros</h1>
                     <form id="form-filter" action="{{ route('trabalhos.filtroDashboard') }}" method="POST">
@@ -62,7 +62,8 @@
                                 <label class="block tracking-wide font-black text-sm font-bold mb-2">
                                     &nbsp;
                                 </label>
-                                <x-button-filter type="submit" class="appearance-none block w-28 bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/>
+                                <x-button-filter type="submit"
+                                    class="appearance-none block w-28 bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
                             </div>
                         </div>
                     </form>
@@ -73,7 +74,8 @@
                                 <tr>
                                     <th class="px-6 py-3">
                                         <input class="form-checkbox shadow-md cursor-pointer" type="checkbox"
-                                            name="select-all" id="select-all" {{$trabalhos->total()==0?'disabled':''}}>
+                                            name="select-all" id="select-all"
+                                            {{ $trabalhos->total() == 0 ? 'disabled' : '' }}>
                                     </th>
                                     <th class="px-6 py-3 text-left">Título</th>
                                     <th class="px-6 py-3 text-left">Autor</th>
@@ -84,6 +86,7 @@
                             <tbody id="body-table">
                                 @foreach ($trabalhos as $trabalho)
                                     <tr id="trabalho-id-{{ $trabalho->id }}"
+                                        onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'"
                                         class="cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50">
                                         <th class="px-6 py-4">
                                             <input class="check-one shadow-md cursor-pointer" type="checkbox" name="ids"
@@ -95,13 +98,13 @@
                                         <td class="px-6 py-4 text-base">{{ date('Y', strtotime($trabalho->data)) }}
                                         </td>
                                         <td class="px-6 py-4 text-base flex flex-row">
-                                            <a href="{{ route('trabalhos.edit', ['id' =>  $trabalho->id] ) }}">
+                                            <a href="{{ route('trabalhos.edit', ['id' => $trabalho->id]) }}">
                                                 <button type="button">
                                                     <x-icon-edit />
                                                 </button>
                                             </a>
                                             <button data-modal-toggle="delete-modal-confirm" data-modal-action="open"
-                                                type="submit" onclick="excluirTrabalho({{ $trabalho->id}})">
+                                                type="submit" onclick="excluirTrabalho({{ $trabalho->id }})">
                                                 <x-icon-delete />
                                             </button>
                                         </td>
@@ -137,9 +140,9 @@
             </div>
         </div>
     </div>
-    @if ($trabalhos->total()>0)
+    @if ($trabalhos->total() > 0)
         <x-button-delete-selected />
         <x-delete-confirm-modal />
     @endif
-    
+
 </x-app-layout>

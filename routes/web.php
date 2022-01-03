@@ -32,6 +32,8 @@ Route::get('/dashboard/trabalhos/{id}/edit', [TrabalhoAcademicoController::class
 
 Route::post('/dashboard/trabalhos', [TrabalhoAcademicoController::class, 'store']) -> middleware(['auth'])->name('trabalhos.store');
 
+Route::get('/dashboard/trabalhos/{id}', [TrabalhoAcademicoController::class, 'showAdmin']) -> middleware(['auth'])->name('auth.trabalhos.show');
+
 Route::put('/dashboard/trabalhos/{id}', [TrabalhoAcademicoController::class, 'update']) -> middleware(['auth'])->name('trabalhos.update');
 
 Route::get('/trabalhos', [TrabalhoAcademicoController::class, 'index'])->name('trabalhos');
