@@ -174,9 +174,11 @@ class Dashboard {
         document.querySelector('body').classList.toggle('overflow-y-hidden');
         wrapperEl.classList.toggle('opacity-100');
         wrapperEl.classList.toggle('opacity-0');
+        wrapperEl.classList.toggle('duration-300');
         wrapperEl.classList.toggle('visible');
         wrapperEl.classList.toggle('invisible');
         mainEl.classList.toggle('-translate-y-full');
+        mainEl.classList.toggle('duration-300');
         mainEl.classList.toggle('translate-y-0')
     };
 

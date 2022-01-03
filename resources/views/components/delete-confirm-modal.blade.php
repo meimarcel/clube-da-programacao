@@ -2,12 +2,12 @@
         'onConfirmEvent' => NULL])
 
 <div
-    {{ $attributes->merge(['id' => 'modal-delete', 'style' => 'transition-duration: 500ms;', 'data-modal' => 'delete-modal-confirm', 'class' => 'invisible inset-0 opacity-0 min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover overflow-x-hidden overflow-y-auto transition-all']) }}>
+    {{ $attributes->merge(['id' => 'modal-delete', 'data-modal' => 'delete-modal-confirm', 'class' => 'invisible inset-0 opacity-0 min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover overflow-x-hidden overflow-y-auto transition']) }}>
     <div
         {{ $attributes->merge(['data-modal-toggle' => 'delete-modal-confirm', 'data-modal-action' => 'close', 'class' => 'inset-0 absolute bg-black opacity-80 inset-0 z-0']) }}>
     </div>
     <div
-        {{ $attributes->merge(['data-modal-main' => 'delete-modal-confirm', 'class' => 'duration-300 transform -translate-y-full modal w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white']) }}>
+        {{ $attributes->merge(['data-modal-main' => 'delete-modal-confirm', 'class' => 'transform -translate-y-full modal w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white']) }}>
         <div {{ $attributes->merge(['class' => 'text-center p-5 flex-auto justify-center']) }}>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 -m-1 flex items-center text-red-500 mx-auto"
                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
