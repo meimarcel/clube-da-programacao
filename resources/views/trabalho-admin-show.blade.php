@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="{{ $trabalho->titulo }}">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ $trabalho->titulo }}

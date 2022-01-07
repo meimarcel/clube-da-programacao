@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Dashboard">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Trabalhos') }}
@@ -91,10 +91,10 @@
                                             <input class="check-one shadow-md cursor-pointer" type="checkbox" name="ids"
                                                 value="{{ $trabalho->id }}">
                                         </th>
-                                        <td onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base">{{ $trabalho->titulo }}</td>
-                                        <td onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base">{{ $trabalho->autor }}</td>
-                                        <td onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base whitespace-nowrap">{{ $trabalho->tipo }}</td>
-                                        <td onclick="location.href = '{{ route('auth.trabalhos.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base">{{ date('Y', strtotime($trabalho->data)) }}
+                                        <td onclick="location.href = '{{ route('trabalhos.admin.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base">{{ $trabalho->titulo }}</td>
+                                        <td onclick="location.href = '{{ route('trabalhos.admin.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base">{{ $trabalho->autor }}</td>
+                                        <td onclick="location.href = '{{ route('trabalhos.admin.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base whitespace-nowrap">{{ $trabalho->tipo }}</td>
+                                        <td onclick="location.href = '{{ route('trabalhos.admin.show', ['id' => $trabalho->id]) }}'" class="px-6 py-4 text-base">{{ date('Y', strtotime($trabalho->data)) }}
                                         </td>
                                         <td class="px-6 py-4 text-base flex flex-row">
                                             <a href="{{ route('trabalhos.edit', ['id' => $trabalho->id]) }}">
